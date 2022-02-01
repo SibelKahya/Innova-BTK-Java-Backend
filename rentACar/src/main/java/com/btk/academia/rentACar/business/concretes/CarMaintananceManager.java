@@ -26,7 +26,9 @@ public class CarMaintananceManager implements CarMaintanceService{
 	private RentalService rentalService;
 
 	@Autowired
-	public CarMaintananceManager(CarMaintanceDao carMaintanceDao, ModelMapperService modelMapperService,RentalService rentalService) {
+	public CarMaintananceManager(CarMaintanceDao carMaintanceDao,
+			ModelMapperService modelMapperService,
+			RentalService rentalService) {
 		this.carMaintanceDao = carMaintanceDao;
 		this.modelMapperService=modelMapperService;
 		this.rentalService=rentalService;
@@ -35,7 +37,6 @@ public class CarMaintananceManager implements CarMaintanceService{
 	@Override
 	public Result add(CreateCarMaintanceRequest createCarMaintanceRequest) {
 		Result result = BusinessRules.run(
-
 				checkCarRental(createCarMaintanceRequest.getCarId())
 				);
 		
